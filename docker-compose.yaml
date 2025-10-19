@@ -1,0 +1,14 @@
+services:
+  gateway:
+    image: nginx:stable
+    container_name: gateway
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - sa_gateway_net
+
+networks:
+  sa_gateway_net:
+    external: true
